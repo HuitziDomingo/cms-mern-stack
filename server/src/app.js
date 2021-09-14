@@ -2,10 +2,12 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import { API_VERSION } from './config'
-
-
+import userRouter from './routes/user.routes'
 
 const app = express()
+
+
+
 
 //Middelwares
 app.use(cors())//para conectar backend
@@ -14,9 +16,9 @@ app.use(express.json())
 
 
 /**
- * Load Routing
+ * Router Basic
  */
-
+app.use(`/api/${API_VERSION}`, userRouter)
 
 
 
